@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abastecimentos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="splash">
+        <div class="splash-box">
+            <div class="icone">⛽</div>
+            <h1>Abastece+</h1>
+            <p>Controle seus abastecimentos</p>
+            <button class="principal" onclick="entrar()">
+                Entrar
+            </button>
+        </div>
+    </div>
+
+    <div id="app" class="oculto">
+        <header>
+            <h1>⛽ Abastece+</h1>
+        </header>
+
+        <main>
+            <div class="resumo">
+                <div>
+                    <span>Preço médio/L</span>
+                    <strong id="mediaPreco">R$ 0,00</strong>
+                </div>
+
+                <div>
+                    <span>Consumo médio</span>
+                    <strong id="mediaConsumo">0,00 km/L</strong>
+                </div>
+
+                <div>
+                    <span>Total</span>
+                    <strong id="total">0</strong>
+                </div>
+            </div>
+
+            <section>
+                <div class="titulo-lista">
+                    <div>
+                        <h2>Abastecimentos</h2>
+                        <p>Clique para editar.</p>
+                    </div>
+                    <button
+                        class="principal"
+                        onclick="abrirModal()">
+                        +
+                    </button>
+                </div>
+
+                <div id="lista"></div>
+            </section>
+        </main>
+    </div>
+
+    <div id="modal" class="modal oculto">
+        <div class="modal-box">
+            <h2 id="tituloModal">
+                Novo abastecimento
+            </h2>
+            <form onsubmit="salvar(event)">
+                <input type="hidden" id="id">
+
+                <label>
+                    Data
+                    <input
+                        type="date"
+                        id="data"
+                        required>
+                </label>
+                <label>
+                    Combustível
+                    <select id="combustivel" required>
+                        <option value="">
+                            Selecione
+                        </option>
+                        <option>Gasolina</option>
+                        <option>Etanol</option>
+                        <option>Diesel</option>
+
+                    </select>
+                </label>
+                <label>
+                    Litros
+                    <input
+                        type="number"
+                        id="litros"
+                        step="0.01"
+                        required>
+                </label>
+                <label>
+                    Valor pago
+                    <input
+                        type="number"
+                        id="valor"
+                        step="0.01"
+                        required>
+                </label>
+                <label>
+                    Quilometragem
+                    <input
+                        type="number"
+                        id="km"
+                        required>
+                </label>
+
+                <div class="botoes">
+                    <button
+                        type="button"
+                        onclick="fecharModal()">
+                        Cancelar
+                    </button>
+                    <button
+                        class="principal"
+                        type="submit">
+                        Salvar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
